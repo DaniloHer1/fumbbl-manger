@@ -102,7 +102,6 @@ public class MigraMongoASLQ {
             preparedStatement.setString(4, p.getName());
             preparedStatement.setString(5, p.getPosition());
             preparedStatement.setInt(6, p.getPositionId());
-            preparedStatement.setInt(6, p.getPositionId());
             preparedStatement.setString(7, p.getInjuries());
 
             String skills = "";

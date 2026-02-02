@@ -49,6 +49,10 @@ public class PlayersEntity {
     @Column(name = "spp", nullable = true)
     private Integer spp;
 
+    @ManyToOne
+    @JoinColumn(name = "team_id", insertable = false, updatable = false)
+    private TeamsEntity team;
+
     public int getId() {
         return id;
     }

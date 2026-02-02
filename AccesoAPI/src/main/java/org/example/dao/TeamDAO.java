@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 import org.bson.Document;
+import org.example.model.dto.Player;
 import org.example.model.dto.Team;
 import org.example.util.MongoConnection;
 
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class TeamDAO {
+public class TeamDAO implements IGenericoDAO<Team> {
 
     private MongoCollection<Document> coleccionTeams;
     Gson gson;
@@ -23,8 +24,9 @@ public class TeamDAO {
         this.gson = new Gson();
     }
 
-    public void insertarTeam(Team team) {
 
+    @Override
+    public void insertar(Team team) {
         String json = gson.toJson(team);
         Document doc = Document.parse(json);
 
@@ -35,6 +37,7 @@ public class TeamDAO {
         coleccionTeams.insertOne(doc);
     }
 
+    @Override
     public Team buscarPorID(int id) {
 
         Document query = new Document("_id", id);
@@ -47,6 +50,7 @@ public class TeamDAO {
         return null;
     }
 
+    @Override
     public List<Team> sacarTodos() {
         List<Team> listaEquipos = new ArrayList<>();
 
@@ -62,7 +66,8 @@ public class TeamDAO {
 
     }
 
-    void actualizarTeam(Team team) {
+    @Override
+    public  void actualizar(Team team) {
 
         String json = gson.toJson(team);
         Document nuevoDoc = Document.parse(json);
@@ -95,7 +100,8 @@ public class TeamDAO {
     }
 
 
-    void borrarTeam(int id) {
+    @Override
+    public void borrar(int id) {
         Document query = new Document("_id", id);
         coleccionTeams.deleteOne(query);
         System.out.println("Team Eliminado: ID "+id);

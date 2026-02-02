@@ -55,6 +55,9 @@ public class TeamsEntity {
     @Column(name = "losses", nullable = true)
     private Integer losses;
 
+    @OneToMany(mappedBy = "team")
+    private List<PlayersEntity> players;
+
     public int getId() {
         return id;
     }
