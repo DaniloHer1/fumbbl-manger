@@ -23,9 +23,7 @@ HibernateFUMBBL/
 │   │   └── TeamsEntity.java    # Entidad JPA equipos
 │   ├── util/
 │   │   └── HibernateUtil.java  # Factory EntityManager
-│   ├── com/example/hibernatefumbbl/
-│   │   ├── HelloApplication.java  # JAX-RS Application
-│   │   └── HelloResource.java     # Endpoint REST
+│   │    
 │   └── Main.java
 ├── src/main/resources/META-INF/
 │   ├── persistence.xml         # Configuración JPA
