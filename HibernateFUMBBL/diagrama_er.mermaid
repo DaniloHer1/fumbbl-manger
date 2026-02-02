@@ -1,0 +1,41 @@
+---
+title: Diagrama Entidad-Relación - Base de Datos FUMBBL (MySQL)
+---
+erDiagram
+    TEAMS {
+        INT id PK "Clave primaria"
+        VARCHAR name "NOT NULL"
+        INT coach_id "ID del entrenador"
+        VARCHAR coach_name "Nombre del entrenador"
+        INT roster_id "ID del roster"
+        VARCHAR roster_name "Nombre del roster"
+        INT team_value "Valor del equipo"
+        INT current_team_value "Valor actual"
+        INT treasury "Tesoro"
+        INT fan_factor "Factor de fans"
+        INT rerolls "Rerrolls"
+        VARCHAR apothecary "Boticario"
+        INT games "Partidos jugados"
+        INT wins "Victorias"
+        INT ties "Empates"
+        INT losses "Derrotas"
+    }
+
+    PLAYERS {
+        INT id PK "Clave primaria"
+        INT team_id FK "NOT NULL → teams.id"
+        INT number "Dorsal"
+        VARCHAR name "NOT NULL"
+        VARCHAR position "Posición"
+        INT position_id "ID de posición"
+        VARCHAR injuries "Lesiones"
+        TEXT skills "Habilidades"
+        INT games "Partidos jugados"
+        INT completions "Pases completados"
+        INT touchdowns "Touchdowns"
+        VARCHAR casualties "Bajas causadas"
+        INT mvps "MVPs"
+        INT spp "Puntos de estrella"
+    }
+
+    TEAMS ||--o{ PLAYERS : "tiene"
