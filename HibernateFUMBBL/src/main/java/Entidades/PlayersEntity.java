@@ -1,7 +1,7 @@
 package Entidades;
 
 import jakarta.persistence.*;
-
+import java.util.List;
 @Entity
 @Table(name = "players", schema = "fumbbl")
 public class PlayersEntity {
@@ -52,6 +52,10 @@ public class PlayersEntity {
     @ManyToOne
     @JoinColumn(name = "team_id", insertable = false, updatable = false)
     private TeamsEntity team;
+
+
+    public List<PlayersEntity> getPlayers() { return players; }
+    public void setPlayers(List<PlayersEntity> players) { this.players = players; }
 
     public int getId() {
         return id;

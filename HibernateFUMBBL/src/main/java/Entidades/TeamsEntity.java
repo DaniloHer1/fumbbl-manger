@@ -1,7 +1,7 @@
 package Entidades;
 
 import jakarta.persistence.*;
-
+import java.util.List;
 @Entity
 @Table(name = "teams", schema = "fumbbl")
 public class TeamsEntity {

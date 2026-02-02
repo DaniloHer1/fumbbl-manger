@@ -27,7 +27,7 @@ public class PlayerDAO {
         EntityManager em=HibernateUtil.getEntityManger();
 
         List<PlayersEntity> equipo=em.createQuery("FROM PlayersEntity t where t.name LIKE :nombre",PlayersEntity.class)
-                .setParameter("name","%"+nombre+"%")
+                .setParameter("nombre","%"+nombre+"%")
                 .getResultList();
         em.close();
 
