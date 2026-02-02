@@ -5,7 +5,8 @@ import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoDatabase;
 
 public class MongoConnection {
-    final static String CADENACONEXION = "mongodb://localhost:27017/";
+    
+    final static String CADENACONEXION = "mongodb://admin:admin@localhost:27017/FUMBBL?authSource=FUMBBL";
     private static String NOMBRE_BD="FUMBBL";
     private static MongoClient cliente;
     private static MongoDatabase database;
